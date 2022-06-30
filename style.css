@@ -21,6 +21,7 @@ a {
 }
 
 img {
+  max-width: 100%;
   vertical-align: top;
 }
 
@@ -34,11 +35,13 @@ li {
   margin: 50px auto;
 }
 
-.sidebar-title_container {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  flex-wrap: wrap;
+.container-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.container-content {
+  flex-grow: 1;
 }
 
 /* design */
@@ -47,25 +50,32 @@ body {
   background: url(./images/background.png);
 }
 
-.content {
+.container {
   display: flex;
   border-radius: 5px;
   overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar {
+.sidebar_wrapper {
   background-image: url(./images/sidebar-background.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  max-width: 220px;
-  flex-shrink: 0;
+  height: 100%;
   padding: 20px;
+}
+
+.sidebar-title_container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .sidebar-title {
   color: white;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
   line-height: 1;
   border-bottom: 10px solid rgba(255, 255, 255, 0.1);
@@ -77,10 +87,11 @@ body {
 
 .sidebar-description {
   margin: 20px 0;
-  color: #636363;
+  font-size: 14px;
+  color: grey;
 }
 
-.sidebar-link {
+.button_link {
   display: block;
   text-align: center;
   background-color: lightgrey;
@@ -92,29 +103,29 @@ body {
   margin: 5px 0;
 }
 
-.sidebar-link.link_blue {
+.button_link.button_blue {
   background-color: dodgerblue;
   color: white;
 }
 
-.main {
+.content_wrapper {
   background-color: white;
   padding: 20px;
 }
 
-.common-title_container {
+.info-title_container {
   display: flex;
   justify-content: space-between;
   border-bottom: 10px solid rgba(0, 0, 0, 0.1);
   align-items: center;
 }
 
-.common-title {
+.info-title {
   font-size: 30px;
   font-weight: 900;
 }
 
-.view_icon {
+.button_view {
   font-size: 13px;
   padding: 0.2em 1em;
   border-radius: 1em;
@@ -129,7 +140,7 @@ body {
 }
 
 .coffee-list-item {
-  max-width: 140px;
+  width: 140px;
 }
 
 .coffee-list-cover {
@@ -144,7 +155,7 @@ body {
 }
 
 .review-list-item {
-  max-width: 300px;
+  width: 300px;
   min-height: 250px;
   padding: 20px;
   background-color: #eee;
@@ -158,6 +169,6 @@ body {
 .review-name {
   color: black;
   text-align: right;
-  /* space-between으로 떨어뜨리긴 했지만 컨텐츠 양이 더 많아졌을 때 간격을 주기 위해 작성했습니다. */
   margin-top: 30px;
+  font-size: 14px;
 }
